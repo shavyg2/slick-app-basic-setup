@@ -6,11 +6,11 @@ import UserPage from "./pages/user.svelte";
 import { GithubApi } from "../services/github-api";
 import UserLayout from "./layout/user-layout.svelte"
 
-@Controller("/user/",{
+@Controller("/",{
     layout:UserLayout
 })
 export class UserController {
-  @View("/home", HomePage)
+  @View("/", HomePage)
   async homepage(userapi: GithubApi, @Query("page") page = 1) {
     let users = await userapi.getPage(page);
 
@@ -20,7 +20,7 @@ export class UserController {
     };
   }
 
-  @View("/:username", UserPage)
+  @View("/user/:username", UserPage)
   async getUserPage(api: GithubApi, @Param("username") username: string) {
     let user = await api.getUserByName(username);
     return {
