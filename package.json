@@ -20,7 +20,7 @@
     "dev": "webpack-dev-server --content-base public"
   },
   "dependencies": {
-    "@slick-for/svelte": "^1.0.0",
+    "@slick-for/svelte": "^1.1.5",
     "history": "^4.9.0",
     "reflect-metadata": "^0.1.13"
   }

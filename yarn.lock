@@ -9,10 +9,10 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
-"@slick-for/svelte@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@slick-for/svelte/-/svelte-1.0.0.tgz#0b5f14e479eed8ec0236101a263d65073907bdbd"
-  integrity sha512-zIPB2YcndXOUCtH9wYHuuhCtDKN4qcrrR1cbIBLiJ/cjWYSMRwqMB3P1CubE+tTWuG/3VE0CkyhxZVyzdkbxQw==
+"@slick-for/svelte@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@slick-for/svelte/-/svelte-1.1.5.tgz#6a8e65a8d008f03883289adc8f37777e980e8eb8"
+  integrity sha512-cRQrgKujniCOeq9GOX7HlUFgJxo7rKFLmMrvM25z+qnqYr6/h+wG5TlcpW/5e+rf8UTUspxM8UCIEI78m2R5qg==
   dependencies:
     "@types/history" "^4.7.2"
     "@types/is-promise" "^2.1.0"
