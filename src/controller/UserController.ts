@@ -5,9 +5,10 @@ import HomePage from "./pages/home.svelte";
 import UserPage from "./pages/user.svelte";
 import { GithubApi } from "../services/github-api";
 import UserLayout from "./layout/user-layout.svelte"
-
-@Controller("/",{
-    layout:UserLayout
+import Loading from "../loading.svelte"
+@Controller("/user",{
+    layout:UserLayout,
+    loading:Loading
 })
 export class UserController {
   @View("/", HomePage)
@@ -20,7 +21,7 @@ export class UserController {
     };
   }
 
-  @View("/user/:username", UserPage)
+  @View("/:username", UserPage)
   async getUserPage(api: GithubApi, @Param("username") username: string) {
     let user = await api.getUserByName(username);
     return {
