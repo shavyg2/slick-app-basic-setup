@@ -6,6 +6,11 @@ const prod = mode === 'production';
 
 module.exports = {
 	devServer: {
+		contentBase: [
+			path.resolve(__dirname, "public"),
+			path.resolve(__dirname, "node_modules")
+		],
+		publicPath:  "/",
 		port:process.env.PORT,
 		historyApiFallback: {
 		  index: 'index.html'

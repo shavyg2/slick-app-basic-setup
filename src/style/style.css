@@ -1,0 +1,48 @@
+
+ @tailwind base;
+
+
+ @tailwind components;
+ 
+
+.card{
+    @apply shadow m-2 p-2;
+}
+
+.title{
+    @apply text-3xl mb-5;
+}
+
+
+.subtitle{
+    @apply text-xl text-gray-600 mb-3 mt-4;
+}
+
+
+.textblock{
+    @apply font-thin mb-10;
+    max-width:600px;
+    word-wrap: break-word;
+    width:100%;
+}
+
+
+.text{
+    @apply textblock mb-2;
+
+}
+
+
+
+
+.embed{
+    @apply shadow my-10;
+}
+
+
+.gist{
+    @apply w-full my-5;
+}
+
+
+ @tailwind utilities;

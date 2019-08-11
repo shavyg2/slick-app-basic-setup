@@ -35,11 +35,11 @@
 
 <div class="navigation flex flex-row justify-around">
   <div>
-    <a use:spa href={`?page=${Math.max(parseInt(page) - 1, 1)}`}>Prev</a>
+    <a id="prev" use:spa href={`?page=${Math.max(parseInt(page) - 1, 1)}`}>Prev</a>
   </div>
 
   <div>
-    <a use:spa href={`?page=${Math.max(parseInt(page) + 1, 1)}`}>Next</a>
+    <a id="next" use:spa href={`?page=${Math.max(parseInt(page) + 1, 1)}`}>Next</a>
   </div>
 </div>
 <div class="flex flex-row flex-wrap">
