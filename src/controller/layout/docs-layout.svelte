@@ -102,7 +102,7 @@
         </nav>
 
       </aside>
-      <div class="p-2 sm:p-0 pt-10 w-full">
+      <div class="p-2 sm:p-0 pt-10 w-full" on:click={closeMobileMenu}>
         <slot />
       </div>
     </div>
