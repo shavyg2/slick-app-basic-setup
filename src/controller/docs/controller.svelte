@@ -8,7 +8,7 @@
   }
 </style>
 
-<div class="container mx-auto md:w-1/2">
+<div class="container mx-auto w-full p-2 lg:w-3/4">
 
   <h1 class="title">Controller</h1>
 
