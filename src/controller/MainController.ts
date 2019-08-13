@@ -7,6 +7,6 @@ export class MainController{
 
     @View("/",null as any)
     redirect(@History() history){
-        history.push("/docs")
+        history.push("/svelte/docs")
     }
 }

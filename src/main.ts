@@ -36,7 +36,7 @@ const app = SlickForSvelteFactory.create(ApplicationModule, {
   history, //https://www.npmjs.com/package/history
   component404: Error404, //svelte 404 Page, make it up or copy from somewhere else,
   error: ErrorPage,
-  target: document.body //Where to render to https://svelte.dev/docs#Creating_a_component
+  target: document.body //Where to render to https://svelte.dev/svelte/docs#Creating_a_component
 });
 
 /**

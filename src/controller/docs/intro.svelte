@@ -49,7 +49,7 @@
   <div class="mb-10">
     You can get started by cloning this repo. The documentation is built 
     with slick.
-    You can go through a <a use:spa href="/docs/getting-started">guided walk through</a> or clone the repository.
+    You can go through a <a use:spa href="/svelte/docs/getting-started">guided walk through</a> or clone the repository.
      <a href="https://github.com/shavyg2/slick-app-basic-setup">Check it out</a>
   </div>
 

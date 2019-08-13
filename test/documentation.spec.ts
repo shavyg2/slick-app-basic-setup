@@ -16,7 +16,7 @@ describe("Check Documentation",()=>{
 
     test("Load Document",async ()=>{
         let [page] = await browser.pages()
-        await page.goto(web.url("/docs"));
+        await page.goto(web.url("/svelte/docs"));
 
         await page.waitForSelector("#content-container",{timeout:1000});
 

@@ -23,7 +23,7 @@ import { ControllerLang } from "../services/docs/controller";
 
 
 
-@Controller("/docs", {
+@Controller("/svelte/docs", {
   scope: "Singleton",
   layout: Layout
 })
@@ -32,7 +32,7 @@ export class DocController {
 
   @View("/", MainPage)
   async mainPage(cservice: ContentService, @Inject(DynamicStore) store, @History() history) {
-      history.push("/docs/introduction");
+      history.push("/svelte/docs/introduction");
     let info = await cservice.getContent();
     store.set(info);
 

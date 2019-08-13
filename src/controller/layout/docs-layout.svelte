@@ -42,18 +42,18 @@
   </div>
   <div >
     <nav class="bg-gray-800 text-white">
-      <div class="mobile-menusm:hidden relative" on:click={toggleMobileMenu}>
+      <div class="mobile-menu sm:hidden relative" on:click={toggleMobileMenu}>
           <i class="fas fa-bars p-2"></i>
 
           {#if show_mobile_menu}
           <div class="menu bg-gray-800 select-none">
             <ul>
-              <a use:spa href="/docs/introduction"><li class="p-2">{side.menu1}</li></a>
-              <a use:spa href="/docs/getting-started"><li class="p-2">{side.menu2}</li></a>
-              <a use:spa href="/docs/template"><li class="p-2">{side.menu3}</li></a>
-              <a use:spa href="/docs/controller"><li class="p-2">{side.menu4}</li></a>
-              <a use:spa href="/docs/view"><li class="p-2">{side.menu5}</li></a>
-              <a use:spa href="/docs/shortcuts"><li class="p-2">{side.menu6}</li></a>
+              <a use:spa href="/svelte/docs/introduction"><li class="p-2">{side.menu1}</li></a>
+              <a use:spa href="/svelte/docs/getting-started"><li class="p-2">{side.menu2}</li></a>
+              <a use:spa href="/svelte/docs/template"><li class="p-2">{side.menu3}</li></a>
+              <a use:spa href="/svelte/docs/controller"><li class="p-2">{side.menu4}</li></a>
+              <a use:spa href="/svelte/docs/view"><li class="p-2">{side.menu5}</li></a>
+              <a use:spa href="/svelte/docs/shortcuts"><li class="p-2">{side.menu6}</li></a>
             </ul>
           </div>
           {/if}
@@ -78,22 +78,22 @@
       <aside class="hidden sm:block card m-0 p-2 bg-gray-800 text-gray-200">
         <nav class="m-3">
           <ul class="w-64 text-white">
-            <a use:spa href="/docs/introduction">
+            <a use:spa href="/svelte/docs/introduction">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu1}</li>
             </a>
-            <a use:spa href="/docs/getting-started">
+            <a use:spa href="/svelte/docs/getting-started">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu2}</li>
             </a>
-            <a use:spa href="/docs/template">
+            <a use:spa href="/svelte/docs/template">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu3}</li>
             </a>
-            <a use:spa href="/docs/controller">
+            <a use:spa href="/svelte/docs/controller">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu4}</li>
             </a>
-            <a use:spa href="/docs/view">
+            <a use:spa href="/svelte/docs/view">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu5}</li>
             </a>
-            <a use:spa href="/docs/shortcuts">
+            <a use:spa href="/svelte/docs/shortcuts">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu6}</li>
             </a>
 
