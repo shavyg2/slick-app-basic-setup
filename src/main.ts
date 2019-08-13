@@ -7,12 +7,13 @@ import Error404 from "./404.svelte";
 import ErrorPage from "./Error.svelte";
 import { DocController } from "./controller/DocController";
 import { TestProviders } from "../test/resource/TestProviders";
-import { Introduction } from "./services/lang/introduction";
-import { Menu } from "./services/lang/menu";
-import { SideMenu } from "./services/lang/side-menu";
-import { GettingStarted } from "./services/lang/GettingStarted";
-import { TemplatingLang } from "./services/lang/templating";
+import { Introduction } from "./services/docs/introduction";
+import { Menu } from "./services/docs/menu";
+import { SideMenu } from "./services/docs/side-menu";
+import { GettingStarted } from "./services/docs/GettingStarted";
+import { TemplatingLang } from "./services/docs/templating";
 import { MainController } from "./controller/MainController";
+import { ControllerLang } from "./services/docs/controller";
 
 const history = createBrowserHistory();
 @Module({
@@ -24,6 +25,7 @@ const history = createBrowserHistory();
     SideMenu,
     GettingStarted,
     TemplatingLang,
+    ControllerLang,
     ...TestProviders
   ]
 })

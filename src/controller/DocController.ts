@@ -6,11 +6,11 @@ import { DynamicStore } from "../../test/resource/writable-store";
 
 import FuzzySearch from "fuzzy-search"; 
 
-import { Menu } from "../services/lang/menu";
-import { SideMenu } from "../services/lang/side-menu";
-import { Introduction } from "../services/lang/introduction";
-import { GettingStarted } from "../services/lang/GettingStarted";
-import { TemplatingLang } from "../services/lang/templating";
+import { Menu } from "../services/docs/menu";
+import { SideMenu } from "../services/docs/side-menu";
+import { Introduction } from "../services/docs/introduction";
+import { GettingStarted } from "../services/docs/GettingStarted";
+import { TemplatingLang } from "../services/docs/templating";
 
 import Intro from "./docs/intro.svelte";
 import Layout from "./layout/docs-layout.svelte";
@@ -19,6 +19,7 @@ import TemplatingPage from "./docs/templating.svelte";
 import ControllerPage from "./docs/controller.svelte";
 import ViewPage from "./docs/view.svelte";
 import ShortcutPage from "./docs/shortcuts.svelte";
+import { ControllerLang } from "../services/docs/controller";
 
 
 
@@ -27,7 +28,7 @@ import ShortcutPage from "./docs/shortcuts.svelte";
   layout: Layout
 })
 export class DocController {
-  constructor(private menu: Menu,private side:SideMenu) {}
+  constructor(private menu: Menu,private side:SideMenu, private template:TemplatingLang) {}
 
   @View("/", MainPage)
   async mainPage(cservice: ContentService, @Inject(DynamicStore) store, @History() history) {
@@ -88,11 +89,11 @@ export class DocController {
 
 
   @View("/controller",ControllerPage)
-  controller(content:TemplatingLang){
+  controller(controller:ControllerLang){
       return {
           menu:this.menu,
           side:this.side,
-          content
+          content:controller.content
       }
   }
 
@@ -117,10 +118,4 @@ export class DocController {
           content
       }
   }
-
-
-  
-
-
-
 }

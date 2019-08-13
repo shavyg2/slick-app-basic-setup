@@ -1,3 +1,7 @@
+
+<script>
+  export let content;
+</script>
 <style>
   .gist {
     height: 700px;
@@ -20,12 +24,11 @@
 
 
   <h2 class="subtitle">Let's break it down</h2>
-  <p class="textblock">
-    Let start with 1.0, we get the Dashboard component. It's just a regular
-    svelte component.
 
-    <br />
-    First we get the create the controller with the controller decorator. we can use in the controller we allow
-    for a username, which will be giving the variable bofy
+  {#each content as text}
+
+  <p class="textblock">
+    {text}
   </p>
+  {/each}
 </div>
