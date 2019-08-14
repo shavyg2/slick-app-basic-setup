@@ -1,5 +1,7 @@
 <script>
   export let content;
+
+  import {isHeading,asHeading} from "../../util/fmt/formatting.ts";
 </script>
 
 <style>
@@ -10,7 +12,7 @@
 
     #main-ts{
         width:100%;
-        height:1150px;
+        height:1000px;
     }
 </style>
 
@@ -19,7 +21,13 @@
 
 
 
-    <h2 class="subtitle">{content.overview_sub}</h2>
+    {#each content.overview as text}
+    {#if isHeading(text)}
+      <h2 class="subtitle">{asHeading(text)}</h2>
+    {:else}
+      <p class="textblock">{text}</p>
+    {/if}
+  {/each}
     <img class="embed" src="/image/src-view.png" alt="project structure"/>
     <ul class="list-disc p-2">
     {#each content.overview_content as text}
@@ -34,8 +42,12 @@
     <iframe class="" id="main-ts" title="main.ts" src="/gist/main-ts.html"/>
 
     {#each content.main_content as text}
-        <p class="textblock">{text}</p>
-    {/each}
+    {#if isHeading(text)}
+      <h2 class="subtitle">{asHeading(text)}</h2>
+    {:else}
+      <p class="textblock">{text}</p>
+    {/if}
+  {/each}
 
 
 

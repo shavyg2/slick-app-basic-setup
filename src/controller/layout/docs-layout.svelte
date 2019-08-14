@@ -30,6 +30,12 @@
   }
 
 
+  .side-menu{
+    position:sticky;
+    top:0;
+  }
+
+
   .menu{
     position:absolute;
   }
@@ -76,7 +82,7 @@
 
     <div class="flex flex-row">
       <aside class="hidden sm:block card m-0 p-2 bg-gray-800 text-gray-200">
-        <nav class="m-3">
+        <nav class="side-menu m-3">
           <ul class="w-64 text-white">
             <a use:spa href="/svelte/docs/introduction">
               <li class={`p-2 capitalize cursor-pointer`}>{side.menu1}</li>
