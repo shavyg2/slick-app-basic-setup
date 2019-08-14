@@ -20,7 +20,7 @@
 
 
 .textblock{
-    @apply font-thin mb-10;
+    @apply font-thin mb-6;
     max-width:600px;
     word-wrap: break-word;
     width:100%;

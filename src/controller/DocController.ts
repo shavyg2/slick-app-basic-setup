@@ -93,7 +93,7 @@ export class DocController {
       return {
           menu:this.menu,
           side:this.side,
-          content:controller.content
+          content:controller
       }
   }
 

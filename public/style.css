@@ -650,7 +650,7 @@ video {
 
 .textblock{
   font-weight: 200;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   max-width:600px;
   word-wrap: break-word;
   width:100%;
@@ -658,7 +658,7 @@ video {
 
 .text{
   font-weight: 200;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   max-width:600px;
   word-wrap: break-word;
   width:100%;
