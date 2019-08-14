@@ -1,4 +1,4 @@
-import { Injectable } from "@slick-for/svelte";
+import { Injectable } from "../../../node_modules/@slick-for/svelte/dist/slick-for-svelte-factory";
 import faker from "faker";
 
 

@@ -31,28 +31,8 @@ export class DocController {
   constructor(private menu: Menu,private side:SideMenu, private template:TemplatingLang) {}
 
   @View("/", MainPage)
-  async mainPage(cservice: ContentService, @Inject(DynamicStore) store, @History() history) {
-      history.push("/svelte/docs/introduction");
-    let info = await cservice.getContent();
-    store.set(info);
-
-    const updateSearch = (term: string) => {
-      const content = get(store);
-      const searcher = new FuzzySearch(content, ["title", "description"], {
-        caseSensitive: false,
-        sort: true
-      });
-      const result = searcher.search(term);
-      console.log(result.toString());
-      return result || [];
-    };
-
-    return {
-        menu:this.menu,
-        side:this.side,
-      contents: store,
-      query: updateSearch
-    };
+  async mainPage(@History() history) {
+    return history.push("/svelte/docs/introduction");
   }
 
   @View("/introduction", Intro)
