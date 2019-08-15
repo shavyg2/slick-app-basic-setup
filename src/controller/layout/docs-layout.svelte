@@ -27,6 +27,12 @@
     top: 0;
   }
 
+
+  aside{
+        flex-basis: 300px;
+    flex-shrink: 0;
+  }
+
   .sticky-menu {
     position: sticky;
     top: 0;
@@ -53,7 +59,14 @@
         {#if show_mobile_menu}
           <div class="menu bg-gray-800 select-none w-32">
             <ul>
-              <a use:spa href="/svelte/docs/introduction">
+
+              {#each side.menus as menu}
+                <a use:spa href={menu.url}>
+                  <li class="p-2">{menu.label}</li>
+                </a>
+              {/each}
+
+              <!-- <a use:spa href="/svelte/docs/introduction">
                 <li class="p-2">{side.menu1}</li>
               </a>
               <a use:spa href="/svelte/docs/getting-started">
@@ -70,7 +83,7 @@
               </a>
               <a use:spa href="/svelte/docs/shortcuts">
                 <li class="p-2">{side.menu6}</li>
-              </a>
+              </a> -->
             </ul>
           </div>
         {/if}
@@ -94,33 +107,19 @@
     <div class="flex flex-row">
       <aside class="hidden md:block card m-0 p-2 bg-gray-800 text-gray-200">
         <nav class="side-menu m-3">
-          <ul class="w-64 text-white">
-            <a use:spa href="/svelte/docs/introduction">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu1}</li>
-            </a>
-            <a use:spa href="/svelte/docs/getting-started">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu2}</li>
-            </a>
-            <a use:spa href="/svelte/docs/template">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu3}</li>
-            </a>
-            <a use:spa href="/svelte/docs/controller">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu4}</li>
-            </a>
-            <a use:spa href="/svelte/docs/view">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu5}</li>
-            </a>
-            <a use:spa href="/svelte/docs/shortcuts">
-              <li class={`p-2 capitalize cursor-pointer`}>{side.menu6}</li>
-            </a>
-
+          <ul class="text-white">
+              {#each side.menus as menu}
+                <a use:spa href={menu.url}>
+                  <li class="p-2 capitalize cursor-pointer">{menu.label}</li>
+                </a>
+              {/each}
           </ul>
 
         </nav>
 
       </aside>
-      <div class="p-2 md:p-0 pt-10 w-full" on:click={closeMobileMenu}>
-        <article class="flex flex-col container p-2 mx-auto lg:w-3/4 xl:w-3/5">
+      <div class="p-2 md:p-0 pt-10 flex-grow" on:click={closeMobileMenu}>
+        <article class="flex flex-col container p-2 mx-auto md:w-3/4 xl:w-3/5 ">
         <slot />
         </article>
       </div>

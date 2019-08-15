@@ -1,1 +1,11 @@
-<h1 class="title">View</h1>
+<script>
+  export let html;
+
+  import Markdown from "../../components/markdown.svelte"
+</script>
+
+
+<Markdown {html}/>
+
+
+

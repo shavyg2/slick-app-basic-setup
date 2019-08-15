@@ -6,19 +6,6 @@ import {
 export class GithubApi {
   private apiUrl = "https://api.github.com";
 
-  async getPage(page: number) {
-    page = this.pageToGitHubPage(page)
-    let res = await fetch(`${this.apiUrl}/users?since=${page}`);
-    let users = await this.isGood(res);
-    return users;
-  }
-
-
-  pageToGitHubPage(page:any):number{
-    let index:number = parseInt(page);
-    return (index-1) * 30
-  }
-
   async getUserByName(username: string) {
     let res = await fetch(`${this.apiUrl}/users/${username}`);
     let users = await this.isGood(res);

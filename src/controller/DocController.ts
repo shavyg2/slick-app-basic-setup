@@ -20,6 +20,7 @@ import ControllerPage from "./docs/controller.svelte";
 import ViewPage from "./docs/view.svelte";
 import ShortcutPage from "./docs/shortcuts.svelte";
 import { ControllerLang } from "../services/docs/controller";
+import { Markdown } from "../services/markdown/markdown";
 
 
 
@@ -36,55 +37,70 @@ export class DocController {
   }
 
   @View("/introduction", Intro)
-  async Introduction(intro: Introduction) {
-    return {
-      menu: this.menu,
-      side:this.side,
-      intro
-    };
-  }
-
-
-  @View("/getting-started",GettingStartedPage)
-  gettingStarted(content:GettingStarted){
-
-    return {
-        menu:this.menu,
-        side:this.side,
-        content:content
-    }
-  }
-
-
-
-  @View("/template",TemplatingPage)
-  templating(content:TemplatingLang){
+  async Introduction(markdown:Markdown) {
+    let html = markdown.getHTML("/general/introduction");
       return {
           menu:this.menu,
           side:this.side,
-          content
+          html
+      }
+  }
+
+  @View("/fast-track",TemplatingPage)
+  fastTrack(markdown:Markdown) {
+    let html = markdown.getHTML("/general/fast-track");
+      return {
+          menu:this.menu,
+          side:this.side,
+          html
+      }
+  }
+
+  @View("/getting-started",GettingStartedPage)
+  gettingStarted(markdown:Markdown) {
+    let html = markdown.getHTML("/general/getting-started");
+      return {
+          menu:this.menu,
+          side:this.side,
+          html
       }
   }
 
 
 
-  @View("/controller",ControllerPage)
-  controller(controller:ControllerLang){
+  
+  @View("/template",TemplatingPage)
+  templating(markdown:Markdown) {
+    let html = markdown.getHTML("/general/templating");
       return {
           menu:this.menu,
           side:this.side,
-          content:controller
+          html
+      }
+  }
+
+
+
+  @View("/controller",TemplatingPage)
+  controller(markdown:Markdown) {
+    let html = markdown.getHTML("/general/controller");
+      return {
+          menu:this.menu,
+          side:this.side,
+          html
       }
   }
 
 
 
   @View("/view",ViewPage)
-  view(content:TemplatingLang){
+  async view(markdown:Markdown){
+
+      let html = markdown.getHTML("/general/view");
       return {
           menu:this.menu,
           side:this.side,
-          content
+          html
       }
   }
 

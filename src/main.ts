@@ -1,6 +1,5 @@
 import { Module, SlickForSvelteFactory } from "@slick-for/svelte";
 import { createBrowserHistory } from "history";
-import { UserController } from "./controller/UserController";
 import { GithubApi } from "./services/github-api";
 import Template from "./Template.svelte";
 import Error404 from "./404.svelte";
@@ -14,8 +13,12 @@ import { GettingStarted } from "./services/docs/GettingStarted";
 import { TemplatingLang } from "./services/docs/templating";
 import { MainController } from "./controller/MainController";
 import { ControllerLang } from "./services/docs/controller";
+import { MarkdownLoader, Markdown } from "./services/markdown/markdown";
+import { UserController } from "./controller/UserController";
 
 const history = createBrowserHistory();
+
+
 @Module({
   controllers: [MainController,UserController, DocController],
   provider: [
@@ -26,10 +29,15 @@ const history = createBrowserHistory();
     GettingStarted,
     TemplatingLang,
     ControllerLang,
+    MarkdownLoader,
+    Markdown,
     ...TestProviders
   ]
 })
-export class ApplicationModule {}
+export class ApplicationModule {
+
+
+}
 
 const app = SlickForSvelteFactory.create(ApplicationModule, {
   base: Template, // Remember that template i told you to keep in your back pocket, take it out.
