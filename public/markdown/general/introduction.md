@@ -1,5 +1,7 @@
-# Intro to Slick for Svelte
 
+<img src="/image/documentation/logo.png"/>
+
+# Intro to Slick for Svelte
 ## Why Choose Slick?
 
 Svelte, is amazingly simple, fast and small. It has mastered component state management, 

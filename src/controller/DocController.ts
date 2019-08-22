@@ -4,7 +4,7 @@ import { ContentService } from "../../test/resource/ContentService";
 import { get } from "svelte/store";
 import { DynamicStore } from "../../test/resource/writable-store";
 
-import FuzzySearch from "fuzzy-search"; 
+import FuzzySearch from "fuzzy-search";
 
 import { Menu } from "../services/docs/menu";
 import { SideMenu } from "../services/docs/side-menu";
@@ -22,14 +22,16 @@ import ShortcutPage from "./docs/shortcuts.svelte";
 import { ControllerLang } from "../services/docs/controller";
 import { Markdown } from "../services/markdown/markdown";
 
-
-
 @Controller("/svelte/docs", {
   scope: "Singleton",
   layout: Layout
 })
 export class DocController {
-  constructor(private menu: Menu,private side:SideMenu, private template:TemplatingLang) {}
+  constructor(
+    private menu: Menu,
+    private side: SideMenu,
+    private template: TemplatingLang
+  ) {}
 
   @View("/", MainPage)
   async mainPage(@History() history) {
@@ -37,81 +39,71 @@ export class DocController {
   }
 
   @View("/introduction", Intro)
-  async Introduction(markdown:Markdown) {
+  async Introduction(markdown: Markdown) {
     let html = markdown.getHTML("/general/introduction");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-  @View("/fast-track",TemplatingPage)
-  fastTrack(markdown:Markdown) {
+  @View("/fast-track", TemplatingPage)
+  fastTrack(markdown: Markdown) {
     let html = markdown.getHTML("/general/fast-track");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-  @View("/getting-started",GettingStartedPage)
-  gettingStarted(markdown:Markdown) {
+  @View("/getting-started", GettingStartedPage)
+  gettingStarted(markdown: Markdown) {
     let html = markdown.getHTML("/general/getting-started");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-
-
-  
-  @View("/template",TemplatingPage)
-  templating(markdown:Markdown) {
+  @View("/template", TemplatingPage)
+  templating(markdown: Markdown) {
     let html = markdown.getHTML("/general/templating");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-
-
-  @View("/controller",TemplatingPage)
-  controller(markdown:Markdown) {
+  @View("/controller", TemplatingPage)
+  controller(markdown: Markdown) {
     let html = markdown.getHTML("/general/controller");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-
-
-  @View("/view",ViewPage)
-  async view(markdown:Markdown){
-
-      let html = markdown.getHTML("/general/view");
-      return {
-          menu:this.menu,
-          side:this.side,
-          html
-      }
+  @View("/view", ViewPage)
+  async view(markdown: Markdown) {
+    let html = markdown.getHTML("/general/view");
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
   }
 
-
-
-  @View("/shortcuts",ShortcutPage)
-  shortCuts(content:TemplatingLang){
-      return {
-          menu:this.menu,
-          side:this.side,
-          content
-      }
+  @View("/shortcuts", ShortcutPage)
+  shortCuts(content: TemplatingLang) {
+    return {
+      menu: this.menu,
+      side: this.side,
+      content
+    };
   }
 }

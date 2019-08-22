@@ -118,7 +118,7 @@
         </nav>
 
       </aside>
-      <div class="p-2 md:p-0 pt-10 flex-grow" on:click={closeMobileMenu}>
+      <div class="p-2 md:p-0 pt-10 flex-grow w-full" on:click={closeMobileMenu}>
         <article class="flex flex-col container p-2 mx-auto md:w-3/4 xl:w-3/5 ">
         <slot />
         </article>

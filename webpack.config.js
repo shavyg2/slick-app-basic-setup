@@ -22,7 +22,7 @@ module.exports = {
 	resolve: {
 		alias: {
 			svelte: path.resolve('node_modules', 'svelte'),
-			"@slick-for/svelte": path.resolve('node_modules', '@slick-for/svelte/dist/slick-for-svelte-factory'),
+			"@slick-for/svelte": path.resolve('node_modules', '@slick-for/svelte/dist/src/slick-for-svelte-factory'),
 		},
 		extensions: ['.mjs', '.js', '.svelte','.ts'],
 		mainFields: ['svelte', 'browser', 'module', 'main']
