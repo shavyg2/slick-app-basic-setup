@@ -1,25 +1,16 @@
 import { Controller, View, Inject, History } from "@slick-for/svelte";
 import MainPage from "./docs/main.svelte";
-import { ContentService } from "../../test/resource/ContentService";
-import { get } from "svelte/store";
-import { DynamicStore } from "../../test/resource/writable-store";
-
-import FuzzySearch from "fuzzy-search";
 
 import { Menu } from "../services/docs/menu";
 import { SideMenu } from "../services/docs/side-menu";
-import { Introduction } from "../services/docs/introduction";
-import { GettingStarted } from "../services/docs/GettingStarted";
 import { TemplatingLang } from "../services/docs/templating";
 
 import Intro from "./docs/intro.svelte";
 import Layout from "./layout/docs-layout.svelte";
 import GettingStartedPage from "./docs/getting-started.svelte";
 import TemplatingPage from "./docs/templating.svelte";
-import ControllerPage from "./docs/controller.svelte";
 import ViewPage from "./docs/view.svelte";
 import ShortcutPage from "./docs/shortcuts.svelte";
-import { ControllerLang } from "../services/docs/controller";
 import { Markdown } from "../services/markdown/markdown";
 
 @Controller("/svelte/docs", {
@@ -35,12 +26,22 @@ export class DocController {
 
   @View("/", MainPage)
   async mainPage(@History() history) {
-    return history.push("/svelte/docs/introduction");
+    history.push("/svelte/docs/introduction");
   }
 
   @View("/introduction", Intro)
   async Introduction(markdown: Markdown) {
     let html = markdown.getHTML("/general/introduction");
+    return {
+      menu: this.menu,
+      side: this.side,
+      html
+    };
+  }
+
+  @View("/breakdown", Intro)
+  async breakdown(markdown: Markdown) {
+    let html = markdown.getHTML("/general/breakdown");
     return {
       menu: this.menu,
       side: this.side,

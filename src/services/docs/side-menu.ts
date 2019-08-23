@@ -9,6 +9,10 @@ export class SideMenu {
       url: "/svelte/docs/introduction"
     },
     {
+      label:"The Basics",
+      url:"/svelte/docs/breakdown"
+    },
+    {
       label: "Fast Track (Advance)",
       url: "/svelte/docs/fast-track"
     },
