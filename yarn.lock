@@ -371,9 +371,9 @@
     uuid "^3.3.2"
 
 "@slick-for/svelte@^1.1.5":
-  version "1.2.3"
-  resolved "https://registry.yarnpkg.com/@slick-for/svelte/-/svelte-1.2.3.tgz#9bcf9302cdcdaa0dbb0d92f6a18c1706bf598729"
-  integrity sha512-jW5QDyGJbSEQPRW0I6r+qgLBxcLqNzdUcKkzBjYfIC1faPoCKH6qrCMQCUKr4f+hjzL9uRDmUI0XbPmb9gU9wQ==
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@slick-for/svelte/-/svelte-1.2.4.tgz#e96fce216683436be4b886553aea0ff1810729b2"
+  integrity sha512-RmS8s2fFT37c7tvQTo1aKdt4MlXIv86rcOo6+GbrJx+Hm/dhZ794wYY507KM7/sm6gY2SqT1a3fSvuAF75l4tg==
   dependencies:
     "@sindresorhus/is" "^1.0.0"
     query-string "^6.8.1"
