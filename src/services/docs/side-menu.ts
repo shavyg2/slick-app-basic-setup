@@ -1,5 +1,4 @@
 import { Injectable } from "@slick-for/svelte";
-import faker from "faker";
 
 @Injectable()
 export class SideMenu {
@@ -10,15 +9,19 @@ export class SideMenu {
     },
     {
       label:"The Basics",
-      url:"/svelte/docs/breakdown"
+      url:"/svelte/docs/basics"
     },
     {
       label: "Fast Track (Advance)",
       url: "/svelte/docs/fast-track"
     },
     {
-      label: "Getting Started",
+      label: "Project Structure",
       url: "/svelte/docs/getting-started"
+    },
+    {
+      label:"Api",
+      url:"/svelte/docs/api"
     },
     {
       label: "Templating",

@@ -1,6 +1,6 @@
 <script>
   import { spa } from "@slick-for/svelte";
-  export let menu;
+  export let nav;
   export let side;
 
   let show_mobile_menu = false;
@@ -27,9 +27,8 @@
     top: 0;
   }
 
-
-  aside{
-        flex-basis: 300px;
+  aside {
+    flex-basis: 300px;
     flex-shrink: 0;
   }
 
@@ -43,8 +42,8 @@
   }
 </style>
 
-<div>
-  <div>
+<div class="h-full">
+  <div class="h-full flex flex-col">
     <div class="bg-gray-800 text-white p-2">
       Slick inc.
       <i class="fab fa-black-tie" />
@@ -65,62 +64,44 @@
                   <li class="p-2">{menu.label}</li>
                 </a>
               {/each}
-
-              <!-- <a use:spa href="/svelte/docs/introduction">
-                <li class="p-2">{side.menu1}</li>
-              </a>
-              <a use:spa href="/svelte/docs/getting-started">
-                <li class="p-2">{side.menu2}</li>
-              </a>
-              <a use:spa href="/svelte/docs/template">
-                <li class="p-2">{side.menu3}</li>
-              </a>
-              <a use:spa href="/svelte/docs/controller">
-                <li class="p-2">{side.menu4}</li>
-              </a>
-              <a use:spa href="/svelte/docs/view">
-                <li class="p-2">{side.menu5}</li>
-              </a>
-              <a use:spa href="/svelte/docs/shortcuts">
-                <li class="p-2">{side.menu6}</li>
-              </a> -->
             </ul>
           </div>
         {/if}
       </div>
       <nav class="bg-gray-800 text-white w-full">
         <ul class="flex flex-row justify-end">
-          <li class="p-2 px-3 font-bold">
-            {menu.content1}
-            <i class="fas fa-file" />
-          </li>
-
-          <li class="p-2 px-3 font-bold">
-            {menu.content2}
-            <i class="fab fa-github" />
-          </li>
+          {#each nav.menus as menu}
+            <a href={menu.url} target="_blank">
+              <li class="p-2 px-3 font-bold">
+                {menu.label}
+                <i class="fas fa-file" />
+              </li>
+            </a>
+          {/each}
         </ul>
       </nav>
 
     </div>
     <!--  -->
-    <div class="flex flex-row">
+    <div class="flex flex-row flex-grow">
       <aside class="hidden md:block card m-0 p-2 bg-gray-800 text-gray-200">
         <nav class="side-menu m-3">
           <ul class="text-white">
-              {#each side.menus as menu}
-                <a use:spa href={menu.url}>
-                  <li class="p-2 capitalize cursor-pointer">{menu.label}</li>
-                </a>
-              {/each}
+            {#each side.menus as menu}
+              <a use:spa href={menu.url}>
+                <li class="p-2 capitalize cursor-pointer">{menu.label}</li>
+              </a>
+            {/each}
           </ul>
 
         </nav>
 
       </aside>
       <div class="p-2 md:p-0 pt-10 flex-grow w-full" on:click={closeMobileMenu}>
-        <article class="flex flex-col container p-2 mx-auto md:w-3/4 xl:w-3/5">
-        <slot />
+        <article
+          class="flex flex-col h-full container p-2 mx-auto md:w-3/4 xl:w-3/5
+          pb-10">
+          <slot />
         </article>
       </div>
     </div>

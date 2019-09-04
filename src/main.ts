@@ -6,13 +6,9 @@ import Error404 from "./404.svelte";
 import ErrorPage from "./Error.svelte";
 import { DocController } from "./controller/DocController";
 import { TestProviders } from "../test/resource/TestProviders";
-import { Introduction } from "./services/docs/introduction";
-import { Menu } from "./services/docs/menu";
+import { NavLabel } from "./services/docs/menu";
 import { SideMenu } from "./services/docs/side-menu";
-import { GettingStarted } from "./services/docs/GettingStarted";
-import { TemplatingLang } from "./services/docs/templating";
 import { MainController } from "./controller/MainController";
-import { ControllerLang } from "./services/docs/controller";
 import { MarkdownLoader, Markdown } from "./services/markdown/markdown";
 import { UserController } from "./controller/UserController";
 
@@ -23,12 +19,8 @@ const history = createBrowserHistory();
   controllers: [MainController,UserController, DocController],
   provider: [
     GithubApi,
-    Introduction,
-    Menu,
+    NavLabel,
     SideMenu,
-    GettingStarted,
-    TemplatingLang,
-    ControllerLang,
     MarkdownLoader,
     Markdown,
     ...TestProviders

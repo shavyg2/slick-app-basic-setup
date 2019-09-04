@@ -2,7 +2,8 @@
 
 ## Getting the View
 
-Simply add the view import and the url to navigate to the view using the ```@View``` decorator.
+Simply import a svelte file and add the url to navigate to the view using the ```@View``` decorator.
+This will render the svelte component when navigating to the url ```/my/page```
 
 ```typescript
 import {Controller,View} from "@slick-for/svelte"
@@ -18,13 +19,12 @@ class MyController{
 }
 ```
 
-This will render the svelte component when navigating to the url ```/my/page```
 
 
 
 ## Getting Data to the View
 
-Simply return an object with keys, and these keys will be sent to the view
+Simply return an object with keys, and these keys will be sent to the view as props
 
 ```typescript
     import {Controller,View} from "@slick-for/svelte"
@@ -49,7 +49,6 @@ Simply return an object with keys, and these keys will be sent to the view
     export let text
 </script>
 
-
 <div>Hello {text}</div>
 
 ```
@@ -62,12 +61,9 @@ This will produce
 
 
 
-## Getting Async Data to the View
+## Getting Async Data to the View (Just do it!)
 
-Just get async data using es6, slick doesn't try to invent new ways of doing things, stick to what you know.
-As long as a promise is returned with the required data, you can get this data.
-
-Note it has to be an Object or Promise containing an Object that is returned as the keys for the object is used as the props in the view.
+Simply mark a method async or return a promise.
 
 ```typescript
 import {Controller,View} from "@slick-for/svelte"
@@ -90,8 +86,10 @@ class MyController{
     }
 }
 ```
+<p class="bg-red-500 text-white border border-red-700 p-2 rounded mx-auto">
 You don't have to wait for the Promise to be resolved in the controller however.
-It is perfectly find to pass it to the view and use svelte await syntex
+It is perfectly fine to pass it to the view and use svelte await syntax.
+</p>
 
 ```html
 {#await data}
@@ -107,9 +105,8 @@ It is perfectly find to pass it to the view and use svelte await syntex
 
 ## Getting Data from the url
 
-Slick does try to live up to it's name. It tries to do things in an intuitive manner.
-For example let's say you need a parameter from the url. It shouldn't require too much
-work to get it. It would be nice to get it in a way where you think to yourself. "That's slick"!!
+Parameters and Query strings are easy to obtain from the url.
+use ```@Param``` and ```@Query``` to get access to these.
 
 
 ```typescript
@@ -134,29 +131,11 @@ class MyController{
 }
 ```
 
-The way slick does this is instead of the developer doing work to get details
-about the application. Slick just allows you to ask for what you need and doesn't get in the way too much.
-
-The ```Param``` decorator and the ```Query``` decorator makes it easy to access things that are in the url that you need.
-
-See some of the other decorators you can use to gather things
-
-|Decorators|Description|Usage|
+<!-- |Decorators|Description|Usage|
 |----------|-----------|-----|
 |@Param    | Use this to get information from the current url of the application. Use the transform functions to further manipulate and coerce the data into the shape you need. ```ParseInt``` anyone? | ```@Param(key?:string,...transformFunction:any[])```|
 |@Query    | Use this to access query parameters that are passed using ```?key=value```. These values are all strings and needs to be transformed if exist.|```@Query(key?:string,...transformFunctions:any[])```|
 |@History  | Use this to access the history plugin used to navigate the application routes. [Documentation](https://github.com/ReactTraining/history), sometimes you need control.| ```@History() history```|
 |@Inject   | Use this to Inject Services that are not based on classes. See section on providers to get a clear understanding.| ```@Inject(apiurl) endpoint```|
 |***Class Constructor***| Any class that is registered using the ```@Injectable``` will automatically be injected when added as a parameter. There is nothing special you need to do here. Just tell the framework what you need.| ```userRepo:UserRepo```
-
-
-
-
-## Scope
-
-
-### Transient
-
-### Request
-
-### Singleton
+ -->

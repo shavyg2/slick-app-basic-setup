@@ -1,9 +1,8 @@
-import { Controller, View, Inject, History } from "@slick-for/svelte";
+import { Controller, View, Inject, History, LayoutProps } from "@slick-for/svelte";
 import MainPage from "./docs/main.svelte";
 
-import { Menu } from "../services/docs/menu";
+import { NavLabel } from "../services/docs/menu";
 import { SideMenu } from "../services/docs/side-menu";
-import { TemplatingLang } from "../services/docs/templating";
 
 import Intro from "./docs/intro.svelte";
 import Layout from "./layout/docs-layout.svelte";
@@ -13,16 +12,26 @@ import ViewPage from "./docs/view.svelte";
 import ShortcutPage from "./docs/shortcuts.svelte";
 import { Markdown } from "../services/markdown/markdown";
 
+
+console.log(LayoutProps)
+
 @Controller("/svelte/docs", {
   scope: "Singleton",
   layout: Layout
 })
 export class DocController {
   constructor(
-    private menu: Menu,
-    private side: SideMenu,
-    private template: TemplatingLang
+    private navigation: NavLabel,
+    private side: SideMenu
   ) {}
+
+  @LayoutProps
+  layout(){
+    return {
+      nav:this.navigation,
+      side:this.side
+    }
+  }
 
   @View("/", MainPage)
   async mainPage(@History() history) {
@@ -33,18 +42,14 @@ export class DocController {
   async Introduction(markdown: Markdown) {
     let html = markdown.getHTML("/general/introduction");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
 
-  @View("/breakdown", Intro)
+  @View("/basics", Intro)
   async breakdown(markdown: Markdown) {
     let html = markdown.getHTML("/general/breakdown");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
@@ -53,8 +58,6 @@ export class DocController {
   fastTrack(markdown: Markdown) {
     let html = markdown.getHTML("/general/fast-track");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
@@ -63,8 +66,6 @@ export class DocController {
   gettingStarted(markdown: Markdown) {
     let html = markdown.getHTML("/general/getting-started");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
@@ -73,8 +74,6 @@ export class DocController {
   templating(markdown: Markdown) {
     let html = markdown.getHTML("/general/templating");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
@@ -83,8 +82,6 @@ export class DocController {
   controller(markdown: Markdown) {
     let html = markdown.getHTML("/general/controller");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
@@ -93,18 +90,16 @@ export class DocController {
   async view(markdown: Markdown) {
     let html = markdown.getHTML("/general/view");
     return {
-      menu: this.menu,
-      side: this.side,
       html
     };
   }
 
-  @View("/shortcuts", ShortcutPage)
-  shortCuts(content: TemplatingLang) {
+
+  @View("/api", ViewPage)
+  async api(markdown: Markdown) {
+    let html = markdown.getHTML("/general/api");
     return {
-      menu: this.menu,
-      side: this.side,
-      content
+      html
     };
   }
 }
